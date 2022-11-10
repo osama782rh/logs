@@ -1,0 +1,27 @@
+import matplotlib.pyplot as plt
+
+try:
+    fsock = open("data.txt")
+except IOError:
+    print("The file does not exist, exiting gracefully")
+    print("This line will always print")
+
+entree = input("Veuillez entrer un mail\n")
+
+left = entree + " has left"
+open = entree + " is starting room"
+
+if '@' in entree:
+    while True:
+        count += 1
+        line = fichier.readline()
+
+        if left in line:
+            salle = line[-15:]
+            print(entree + " à quitter la salle :" + salle + " le :" + line[0:11] + " à " + line[11:19] + "\n")
+        elif open in line:
+            salle = line[-15:]
+            print(entree + " à ouvert la salle :" + salle + " le :" + line[0:11] + " à " + line[11:19] + "\n")
+        else:
+            print("Is not : Error")
+fichier.close()
